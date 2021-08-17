@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package proto;
+
+option go_package = "./";
+
+message Fruit {
+    int32 num = 1;
+    string name = 2;
+}
+
+message SelectNum {
+    int32 num = 1;
+}
+
+message SelectName {
+    string name = 1;
+}
+
+service gRpc_1 {
+    rpc ChoiceNum(SelectNum) returns (Fruit){}
+    rpc ChoiceName(SelectName) returns (Fruit){}
+}
